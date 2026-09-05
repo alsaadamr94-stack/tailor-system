@@ -3,7 +3,6 @@ services:
     name: tailor-system
     runtime: node
     plan: starter          # يلزم خطة مدفوعة (وليست free) لإرفاق قرص دائم يحفظ بياناتك
-    rootDir: backend
     buildCommand: npm install
     startCommand: npm start
     envVars:
