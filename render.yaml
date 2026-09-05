@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: tailor-system
+    runtime: node
+    plan: starter          # يلزم خطة مدفوعة (وليست free) لإرفاق قرص دائم يحفظ بياناتك
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: ADMIN_EMAIL
+        value: alsaadamr94@gmail.com
+      - key: ADMIN_DEFAULT_PASSWORD
+        sync: false        # عيّنها بنفسك من لوحة Render بدل تركها في الكود
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DB_PATH
+        value: /var/data/tailor.db
+    disk:
+      name: tailor-data
+      mountPath: /var/data
+      sizeGB: 1
